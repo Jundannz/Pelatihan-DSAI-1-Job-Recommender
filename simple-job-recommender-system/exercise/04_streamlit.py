@@ -17,6 +17,11 @@ else:
 
 st.set_page_config(page_title="Data Scientist Job Recommender in Jakarta", layout="wide")
 
+if not QDRANT_URL:
+    st.error("ERROR: QDRANT_URL kosong! Cek menu Secrets di Streamlit Cloud.")
+    st.stop()
+# -----------------------------------------------
+
 st.title("Data Scientist Job Recommender in Jakarta")
 
 model_name = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
