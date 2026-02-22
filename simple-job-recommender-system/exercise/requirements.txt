@@ -1,5 +1,5 @@
 streamlit==1.32.2
-qdrant-client
+qdrant-client==1.16.0
 sentence-transformers==2.6.1
 transformers==4.38.2
 torch==2.2.1
