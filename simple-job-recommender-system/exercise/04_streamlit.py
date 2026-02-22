@@ -6,8 +6,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-QDRANT_URL = os.getenv("QDRANT_URL")
-QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+# Deteksi otomatis: Kalau di Cloud pakai st.secrets, kalau di laptop pakai os.getenv
+if "QDRANT_URL" in st.secrets:
+    QDRANT_URL = st.secrets["QDRANT_URL"]
+    QDRANT_API_KEY = st.secrets["QDRANT_API_KEY"]
+else:
+    QDRANT_URL = os.getenv("QDRANT_URL")
+    QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+# -----------------------
 
 st.set_page_config(page_title="Data Scientist Job Recommender in Jakarta", layout="wide")
 
