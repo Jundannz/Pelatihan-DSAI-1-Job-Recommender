@@ -8,23 +8,21 @@ import pandas as pd
 import os
 import time
 
-# YANG DI DALAM KURUNG ISI SENDIRI
-
-file_path = "./data/jobstreet_data_{TEMPAT}_{NAMA_JOB}.csv"
+file_path = "./data/jobstreet_data_jakarta_data_scientist.csv"
 os.makedirs("data", exist_ok=True)
 
 if not os.path.exists(file_path):
     pd.DataFrame(columns=["role","company","description","link"]).to_csv(file_path, index=False)
     
 options = Options()
-options.binary_location = "/usr/bin/google-chrome"
+#options.binary_location = "/usr/bin/google-chrome"
 options.add_argument("--start-maximized")
 options.add_argument("--disable-blink-features=AutomationControlled")
 
 driver = webdriver.Chrome(options=options)
 wait = WebDriverWait(driver, 10)
 
-search_url = "https://id.jobstreet.com/id/{NAMA_JOB}-jobs/in-{TEMPAT}"
+search_url = "https://id.jobstreet.com/id/data-scientist-jobs/in-jakarta"
 driver.get(search_url)
 
 time.sleep(5)

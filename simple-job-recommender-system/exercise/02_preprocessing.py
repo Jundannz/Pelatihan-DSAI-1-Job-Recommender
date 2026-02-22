@@ -9,7 +9,7 @@ nltk.download("stopwords")
 nltk.download("wordnet")
 nltk.download("omw-1.4")
 
-input_path = "./data/jobstreet_data_{TEMPAT}_{NAMA_JOB}.csv"
+input_path = "./data/jobstreet_data_jakarta_data_scientist.csv"
 df = pd.read_csv(input_path)
 
 translator = GoogleTranslator(source="auto", target="en")
@@ -47,7 +47,7 @@ df["description_translated"] = df["description"].apply(translate_text)
 print("Cleaning descriptions...")
 df["description_cleaned"] = df["description_translated"].apply(clean_text)
 
-output_path = "./data/jobstreet_data_{TEMPAT}_{NAMA_JOB}_cleaned.csv"
+output_path = "./data/jobstreet_data_jakarta_data_scientist_cleaned.csv"
 df.to_csv(output_path, index=False)
 
 print("\nORIGINAL:")

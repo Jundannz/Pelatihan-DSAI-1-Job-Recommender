@@ -36,11 +36,11 @@ if st.button("Find Jobs") and query.strip() != "":
     with st.spinner("Searching..."):
         query_vector = model.encode(query).tolist()
 
-        search_result = client.search(
+        search_result = client.query_points(
             collection_name=collection_name,
-            query_vector=query_vector,
+            query=query_vector,
             limit=top_k
-        )
+        ).points
 
     st.subheader("Recommended Jobs")
 
